@@ -13,6 +13,10 @@
 <link rel="preload" as="font" type="font/woff2" href="fonts/cormorant-garamond-300-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="fonts/cormorant-sc-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="fonts/fraunces-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/cormorant-garamond-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/cormorant-garamond-italic-300-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/cormorant-garamond-italic-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/fraunces-italic-400-latin.woff2" crossorigin>
 
 <style>
 /* ---------- Self-hosted fonts (latin + latin-ext subsets, woff2) ---------- */
@@ -71,6 +75,7 @@
   --gold-500: #c9a24a;    /* logo monogram gold */
   --gold-400: #d6b363;
   --gold-300: #e2c786;
+  --gold-text: #8c691c;   /* for passing contrast on light backgrounds */
 
   --terra-600: #a65b3a;   /* terracotta planters */
   --terra-500: #c07050;
@@ -136,7 +141,7 @@ h1, h2, h3 { font-family: var(--serif-display); font-weight: 400; line-height: 1
   font-size: 12px;
   letter-spacing: 0.28em;
   font-weight: 500;
-  color: var(--gold-500);
+  color: var(--gold-text);
   text-transform: uppercase;
 }
 
@@ -193,7 +198,7 @@ h1, h2, h3 { font-family: var(--serif-display); font-weight: 400; line-height: 1
   font-family: var(--serif-caps);
   font-size: 10px;
   letter-spacing: 0.3em;
-  color: var(--gold-500);
+  color: var(--gold-text);
   margin-top: 3px;
   white-space: nowrap;
 }
@@ -452,7 +457,7 @@ section { padding: 120px 0; position: relative; }
   font-weight: 300;
   margin-bottom: 20px;
 }
-.section-head h2 em { font-style: italic; color: var(--gold-500); }
+.section-head h2 em { font-style: italic; color: var(--gold-text); }
 .section-head p {
   max-width: 620px;
   margin: 0 auto;
@@ -810,7 +815,7 @@ section { padding: 120px 0; position: relative; }
   font-style: italic;
 }
 .review-stars {
-  color: var(--gold-500);
+  color: var(--gold-text);
   font-size: 16px;
   letter-spacing: 4px;
   margin-bottom: 20px;
@@ -854,7 +859,7 @@ section { padding: 120px 0; position: relative; }
   font-family: var(--serif-caps);
   font-size: 10px;
   letter-spacing: 0.24em;
-  color: var(--gold-500);
+  color: var(--gold-text);
 }
 
 .reviews-summary {
@@ -880,7 +885,7 @@ section { padding: 120px 0; position: relative; }
 }
 .summary-big em {
   font-style: italic;
-  color: var(--gold-500);
+  color: var(--gold-text);
 }
 .summary-label {
   font-family: var(--serif-caps);
@@ -1098,7 +1103,7 @@ section { padding: 120px 0; position: relative; }
   font-family: var(--serif-caps);
   font-size: 10px;
   letter-spacing: 0.26em;
-  color: rgba(243, 234, 216, 0.4);
+  color: rgba(243, 234, 216, 0.7);
   flex-wrap: wrap;
   gap: 14px;
 }
@@ -1245,6 +1250,7 @@ section { padding: 120px 0; position: relative; }
   </ul>
 </div>
 
+<main id="main-content">
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="container">
@@ -1591,6 +1597,7 @@ section { padding: 120px 0; position: relative; }
     </div>
   </div>
 </section>
+</main>
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -1664,7 +1671,7 @@ section { padding: 120px 0; position: relative; }
 
     <div class="footer-bottom">
       <div>© 2026 · Casa Dom Farina · Todos os direitos reservados</div>
-      <div>Feito com <span style="color: var(--terra-500);">♥</span> em Uberlândia</div>
+      <div>Feito com <span style="color: var(--terra-300);">♥</span> em Uberlândia</div>
     </div>
   </div>
 </footer>
