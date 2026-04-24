@@ -6,12 +6,60 @@
 <title>Casa Dom Farina — Padaria Artesanal & Café</title>
 <meta name="description" content="Padaria artesanal, pães e cafés especiais em Uberlândia. Brunch, patisserie e almoço executivo em um ambiente acolhedor." />
 
-<!-- Fonts: Cormorant Garamond (display serif, matches gold script on storefront), Fraunces (refined body serif), Cormorant SC for small caps -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cormorant+SC:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
+<!-- Discover the LCP image early (CSS background otherwise hidden from preload scanner) -->
+<link rel="preload" as="image" href="images/storefront.webp" type="image/webp" fetchpriority="high">
+
+<!-- Preload only the fonts used above the fold; rest fetch on use -->
+<link rel="preload" as="font" type="font/woff2" href="fonts/cormorant-garamond-300-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/cormorant-sc-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/fraunces-latin.woff2" crossorigin>
 
 <style>
+/* ---------- Self-hosted fonts (latin + latin-ext subsets, woff2) ---------- */
+/* Latin range covers pt-BR; latin-ext only fetched if needed for stray chars */
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 300; font-display: swap;
+  src: url('fonts/cormorant-garamond-300-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 300; font-display: swap;
+  src: url('fonts/cormorant-garamond-300-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 400 600; font-display: swap;
+  src: url('fonts/cormorant-garamond-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 400 600; font-display: swap;
+  src: url('fonts/cormorant-garamond-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 300; font-display: swap;
+  src: url('fonts/cormorant-garamond-italic-300-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 300; font-display: swap;
+  src: url('fonts/cormorant-garamond-italic-300-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 400; font-display: swap;
+  src: url('fonts/cormorant-garamond-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 400; font-display: swap;
+  src: url('fonts/cormorant-garamond-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Cormorant SC'; font-style: normal; font-weight: 400 600; font-display: swap;
+  src: url('fonts/cormorant-sc-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Cormorant SC'; font-style: normal; font-weight: 400 600; font-display: swap;
+  src: url('fonts/cormorant-sc-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 400 500; font-display: swap;
+  src: url('fonts/fraunces-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 400 500; font-display: swap;
+  src: url('fonts/fraunces-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Fraunces'; font-style: italic; font-weight: 400; font-display: swap;
+  src: url('fonts/fraunces-italic-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Fraunces'; font-style: italic; font-weight: 400; font-display: swap;
+  src: url('fonts/fraunces-italic-400-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
 /* ---------- Design tokens ---------- */
 :root {
   /* Brand palette — pulled from the logo (deep forest green + gold) and storefront (terracotta planters, warm wood, cream interior lighting) */
@@ -207,7 +255,7 @@ h1, h2, h3, h4 { font-family: var(--serif-display); font-weight: 400; line-heigh
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url('images/storefront.png');
+  background-image: url('images/storefront.webp');
   background-size: cover;
   background-position: center;
   opacity: 0.28;
@@ -457,7 +505,7 @@ section { padding: 120px 0; position: relative; }
 .about-imagery .main-img {
   width: 100%;
   height: 100%;
-  background: url('images/storefront.png') center/cover;
+  background: url('images/storefront.webp') center/cover;
   border-radius: 2px;
   box-shadow: var(--shadow-deep);
 }
@@ -467,7 +515,7 @@ section { padding: 120px 0; position: relative; }
   right: -50px;
   width: 55%;
   aspect-ratio: 3/4;
-  background: url('images/storefront-2.png') center/cover;
+  background: url('images/storefront-2.webp') center/cover;
   border-radius: 2px;
   border: 8px solid var(--cream-100);
   box-shadow: var(--shadow-deep);
@@ -631,19 +679,19 @@ section { padding: 120px 0; position: relative; }
 .spec-card:hover .spec-arrow { gap: 16px; }
 
 .spec-1 { grid-column: span 7; min-height: 440px; }
-.spec-1::before { background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1400&auto=format&fit=crop'); }
+.spec-1::before { background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=70&w=800&auto=format&fit=crop&fm=webp'); }
 
 .spec-2 { grid-column: span 5; }
-.spec-2::before { background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1400&auto=format&fit=crop'); }
+.spec-2::before { background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=70&w=800&auto=format&fit=crop&fm=webp'); }
 
 .spec-3 { grid-column: span 4; }
-.spec-3::before { background-image: url('https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=1400&auto=format&fit=crop'); }
+.spec-3::before { background-image: url('https://images.unsplash.com/photo-1525351484163-7529414344d8?q=70&w=800&auto=format&fit=crop&fm=webp'); }
 
 .spec-4 { grid-column: span 4; }
-.spec-4::before { background-image: url('https://images.unsplash.com/photo-1559622214-f8a9850965bb?q=80&w=1400&auto=format&fit=crop'); }
+.spec-4::before { background-image: url('https://images.unsplash.com/photo-1559622214-f8a9850965bb?q=70&w=800&auto=format&fit=crop&fm=webp'); }
 
 .spec-5 { grid-column: span 4; }
-.spec-5::before { background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1400&auto=format&fit=crop'); }
+.spec-5::before { background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=70&w=800&auto=format&fit=crop&fm=webp'); }
 
 /* ---------- Menu preview ---------- */
 .menu {
@@ -1647,14 +1695,22 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
-/* ---------- Subtle parallax on hero monogram ---------- */
+/* ---------- Subtle parallax on hero monogram (rAF-batched, opt-out on reduced motion) ---------- */
 const monogram = document.querySelector('.hero-monogram-inner');
-if (monogram) {
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (monogram && !reducedMotion) {
+  let pendingX = 0, pendingY = 0, ticking = false;
   window.addEventListener('mousemove', (e) => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 10;
-    const y = (e.clientY / window.innerHeight - 0.5) * 10;
-    monogram.style.transform = `translate(${x}px, ${y}px)`;
-  });
+    pendingX = (e.clientX / window.innerWidth - 0.5) * 10;
+    pendingY = (e.clientY / window.innerHeight - 0.5) * 10;
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(() => {
+        monogram.style.transform = `translate(${pendingX}px, ${pendingY}px)`;
+        ticking = false;
+      });
+    }
+  }, { passive: true });
 }
 </script>
 
