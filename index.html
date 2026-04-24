@@ -1707,14 +1707,18 @@ const monogram = document.querySelector('.hero-monogram-inner');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (monogram && !reducedMotion) {
   let pendingX = 0, pendingY = 0, ticking = false;
-  let winW = window.innerWidth;
-  let winH = window.innerHeight;
+  let winW = 0, winH = 0;
+  
   window.addEventListener('resize', () => {
     winW = window.innerWidth;
     winH = window.innerHeight;
   }, { passive: true });
 
   window.addEventListener('mousemove', (e) => {
+    if (!winW) {
+      winW = window.innerWidth;
+      winH = window.innerHeight;
+    }
     pendingX = (e.clientX / winW - 0.5) * 10;
     pendingY = (e.clientY / winH - 0.5) * 10;
     if (!ticking) {
