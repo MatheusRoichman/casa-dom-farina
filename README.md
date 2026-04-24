@@ -35,9 +35,9 @@ casa-dom-farina/
 ├── index.html           # Página única com todo o site
 ├── README.md            # Este arquivo
 └── images/
-    ├── logo.png         # Monograma Casa Dom Farina
-    ├── storefront.png   # Fachada principal
-    └── storefront-2.png # Fachada alternativa
+    ├── logo.webp         # Monograma Casa Dom Farina
+    ├── storefront.webp   # Fachada principal
+    └── inside-store.webp # Interior da padaria
 ```
 
 ## Tecnologias
