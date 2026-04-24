@@ -684,19 +684,19 @@ section { padding: 120px 0; position: relative; }
 .spec-card:hover .spec-arrow { gap: 16px; }
 
 .spec-1 { grid-column: span 7; min-height: 440px; }
-.spec-1::before { background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=70&w=800&auto=format&fit=crop&fm=webp'); }
+.spec-1::before { background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=50&w=600&auto=format&fit=crop&fm=webp'); }
 
 .spec-2 { grid-column: span 5; }
-.spec-2::before { background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=70&w=800&auto=format&fit=crop&fm=webp'); }
+.spec-2::before { background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=50&w=600&auto=format&fit=crop&fm=webp'); }
 
 .spec-3 { grid-column: span 4; }
-.spec-3::before { background-image: url('https://images.unsplash.com/photo-1525351484163-7529414344d8?q=70&w=800&auto=format&fit=crop&fm=webp'); }
+.spec-3::before { background-image: url('https://images.unsplash.com/photo-1525351484163-7529414344d8?q=50&w=600&auto=format&fit=crop&fm=webp'); }
 
 .spec-4 { grid-column: span 4; }
-.spec-4::before { background-image: url('https://images.unsplash.com/photo-1559622214-f8a9850965bb?q=70&w=800&auto=format&fit=crop&fm=webp'); }
+.spec-4::before { background-image: url('https://images.unsplash.com/photo-1559622214-f8a9850965bb?q=50&w=600&auto=format&fit=crop&fm=webp'); }
 
 .spec-5 { grid-column: span 4; }
-.spec-5::before { background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=70&w=800&auto=format&fit=crop&fm=webp'); }
+.spec-5::before { background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=50&w=600&auto=format&fit=crop&fm=webp'); }
 
 /* ---------- Menu preview ---------- */
 .menu {
@@ -1707,9 +1707,16 @@ const monogram = document.querySelector('.hero-monogram-inner');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (monogram && !reducedMotion) {
   let pendingX = 0, pendingY = 0, ticking = false;
+  let winW = window.innerWidth;
+  let winH = window.innerHeight;
+  window.addEventListener('resize', () => {
+    winW = window.innerWidth;
+    winH = window.innerHeight;
+  }, { passive: true });
+
   window.addEventListener('mousemove', (e) => {
-    pendingX = (e.clientX / window.innerWidth - 0.5) * 10;
-    pendingY = (e.clientY / window.innerHeight - 0.5) * 10;
+    pendingX = (e.clientX / winW - 0.5) * 10;
+    pendingY = (e.clientY / winH - 0.5) * 10;
     if (!ticking) {
       ticking = true;
       requestAnimationFrame(() => {
