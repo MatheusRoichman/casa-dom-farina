@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Casa Dom Farina — Padaria Artesanal & Café</title>
+<meta name="description" content="Padaria artesanal, pães e cafés especiais em Uberlândia. Brunch, patisserie e almoço executivo em um ambiente acolhedor." />
+
+<!-- Fonts: Cormorant Garamond (display serif, matches gold script on storefront), Fraunces (refined body serif), Cormorant SC for small caps -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cormorant+SC:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
+
+<style>
+/* ---------- Design tokens ---------- */
+:root {
+  /* Brand palette — pulled from the logo (deep forest green + gold) and storefront (terracotta planters, warm wood, cream interior lighting) */
+  --green-900: #1e3a2e;   /* deepest green, used sparingly */
+  --green-800: #26493a;   /* logo background */
+  --green-700: #2e5a46;   /* storefront awning */
+  --green-600: #3b6d55;
+
+  --gold-500: #c9a24a;    /* logo monogram gold */
+  --gold-400: #d6b363;
+  --gold-300: #e2c786;
+
+  --terra-600: #a65b3a;   /* terracotta planters */
+  --terra-500: #c07050;
+  --terra-300: #e3a587;
+
+  --cream-50:  #faf5ec;   /* page background */
+  --cream-100: #f3ead8;   /* warm cream */
+  --cream-200: #e9dcc2;   /* deeper cream / paper */
+
+  --ink-900: #1a1410;     /* warm near-black */
+  --ink-700: #3a2e22;     /* dark brown, body text */
+  --ink-500: #6b5a47;     /* muted brown */
+
+  --serif-display: "Cormorant Garamond", "Cormorant", Georgia, serif;
+  --serif-caps:    "Cormorant SC", "Cormorant Garamond", Georgia, serif;
+  --serif-body:    "Fraunces", Georgia, "Times New Roman", serif;
+
+  --radius-sm: 2px;
+  --radius-md: 6px;
+
+  --shadow-soft: 0 1px 2px rgba(26,20,16,.04), 0 8px 28px rgba(26,20,16,.08);
+  --shadow-deep: 0 2px 4px rgba(26,20,16,.06), 0 20px 60px rgba(26,20,16,.18);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--serif-body);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink-700);
+  background: var(--cream-50);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Subtle paper texture for the whole page */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(201,162,74,.03) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(166,91,58,.03) 0%, transparent 40%);
+  opacity: .8;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4 { font-family: var(--serif-display); font-weight: 400; line-height: 1.1; color: var(--ink-900); letter-spacing: -0.01em; }
+
+.container { width: min(1280px, 92%); margin: 0 auto; position: relative; z-index: 2; }
+
+.eyebrow {
+  font-family: var(--serif-caps);
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  font-weight: 500;
+  color: var(--gold-500);
+  text-transform: uppercase;
+}
+
+/* ---------- Top announcement bar ---------- */
+.topbar {
+  background: var(--green-800);
+  color: var(--cream-100);
+  font-family: var(--serif-caps);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-align: center;
+  padding: 10px 16px;
+  font-weight: 500;
+  position: relative;
+  z-index: 10;
+}
+.topbar span { color: var(--gold-400); margin: 0 10px; }
+
+/* ---------- Header / Nav ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 245, 236, 0.88);
+  backdrop-filter: saturate(140%) blur(12px);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
+  border-bottom: 1px solid rgba(201,162,74,.18);
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.nav-logo img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+.nav-logo .brand-name {
+  font-family: var(--serif-display);
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  color: var(--green-800);
+  line-height: 1;
+  white-space: nowrap;
+}
+.nav-logo .brand-sub {
+  font-family: var(--serif-caps);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--gold-500);
+  margin-top: 3px;
+  white-space: nowrap;
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  font-family: var(--serif-caps);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+}
+.nav-links a {
+  color: var(--ink-700);
+  padding: 6px 0;
+  border-bottom: 1px solid transparent;
+  transition: border-color .25s ease, color .25s ease;
+  white-space: nowrap;
+}
+.nav-links a:hover { color: var(--green-800); border-bottom-color: var(--gold-500); }
+
+.nav-cta {
+  font-family: var(--serif-caps);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  padding: 12px 22px;
+  border: 1px solid var(--green-800);
+  color: var(--green-800);
+  border-radius: var(--radius-sm);
+  transition: all .25s ease;
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.nav-cta:hover { background: var(--green-800); color: var(--cream-50); }
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: var(--green-800);
+}
+.hamburger svg { width: 26px; height: 26px; }
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  background: var(--green-800);
+  overflow: hidden;
+  color: var(--cream-100);
+  display: flex;
+  align-items: center;
+  padding: 120px 0 180px;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('images/storefront.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.28;
+  filter: saturate(1.1);
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(30,58,46,.25) 0%, rgba(30,58,46,.85) 70%),
+    linear-gradient(180deg, rgba(30,58,46,.55) 0%, rgba(30,58,46,.92) 100%);
+}
+.hero .container { position: relative; z-index: 2; }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  font-family: var(--serif-caps);
+  color: var(--gold-400);
+  letter-spacing: 0.32em;
+  font-size: 12px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  animation: fadeUp 1s ease .1s both;
+}
+.hero-eyebrow::before {
+  content: "";
+  width: 40px; height: 1px; background: var(--gold-500);
+}
+
+.hero h1 {
+  font-size: clamp(48px, 7vw, 108px);
+  font-weight: 300;
+  color: var(--cream-100);
+  line-height: 0.98;
+  margin-bottom: 36px;
+  letter-spacing: -0.015em;
+  animation: fadeUp 1s ease .3s both;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-400);
+  font-weight: 400;
+}
+
+.hero p.lede {
+  font-size: 19px;
+  line-height: 1.6;
+  color: rgba(243, 234, 216, 0.88);
+  max-width: 520px;
+  margin-bottom: 44px;
+  animation: fadeUp 1s ease .5s both;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  animation: fadeUp 1s ease .7s both;
+}
+
+.btn-gold {
+  font-family: var(--serif-caps);
+  font-size: 12px;
+  letter-spacing: 0.26em;
+  padding: 18px 36px;
+  background: var(--gold-500);
+  color: var(--ink-900);
+  border: none;
+  cursor: pointer;
+  transition: all .3s ease;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+.btn-gold:hover { background: var(--gold-300); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(201,162,74,.3); }
+
+.btn-ghost-light {
+  font-family: var(--serif-caps);
+  font-size: 12px;
+  letter-spacing: 0.26em;
+  padding: 18px 36px;
+  background: transparent;
+  color: var(--cream-100);
+  border: 1px solid rgba(243, 234, 216, 0.5);
+  cursor: pointer;
+  transition: all .3s ease;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+}
+.btn-ghost-light:hover { border-color: var(--cream-100); background: rgba(243, 234, 216, 0.08); }
+
+/* Hero right: floating monogram card */
+.hero-monogram {
+  animation: fadeIn 1.4s ease .6s both;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.hero-monogram-inner {
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: var(--green-900);
+  border: 1px solid var(--gold-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: var(--shadow-deep);
+}
+.hero-monogram-inner::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,162,74,.45);
+}
+.hero-monogram-inner .f-mark {
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-size: 180px;
+  color: var(--gold-400);
+  line-height: 1;
+  font-weight: 400;
+  transform: translateY(-6px);
+}
+.hero-monogram .sub-ribbon {
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--serif-caps);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: var(--gold-400);
+  white-space: nowrap;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--serif-caps);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: rgba(243, 234, 216, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 3;
+  animation: fadeIn 1s ease 1.2s both;
+}
+.hero-scroll::after {
+  content: "";
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(180deg, var(--gold-400), transparent);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine {
+  0%, 100% { transform: scaleY(1); opacity: 1; }
+  50% { transform: scaleY(0.4); opacity: 0.5; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ---------- Section base ---------- */
+section { padding: 120px 0; position: relative; }
+
+.section-head {
+  text-align: center;
+  margin-bottom: 80px;
+}
+.section-head .eyebrow { margin-bottom: 20px; display: inline-block; }
+.section-head h2 {
+  font-size: clamp(40px, 5vw, 68px);
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+.section-head h2 em { font-style: italic; color: var(--gold-500); }
+.section-head p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--ink-500);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.divider-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 0 auto 24px;
+  color: var(--gold-500);
+}
+.divider-ornament::before,
+.divider-ornament::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: var(--gold-500);
+  opacity: 0.6;
+}
+.divider-ornament svg { width: 14px; height: 14px; }
+
+/* ---------- About / História ---------- */
+.about {
+  background: var(--cream-100);
+  position: relative;
+}
+.about::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-500), transparent);
+  opacity: .4;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 100px;
+  align-items: center;
+}
+.about-imagery {
+  position: relative;
+  aspect-ratio: 4 / 5;
+}
+.about-imagery .main-img {
+  width: 100%;
+  height: 100%;
+  background: url('images/storefront.png') center/cover;
+  border-radius: 2px;
+  box-shadow: var(--shadow-deep);
+}
+.about-imagery .accent-img {
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 55%;
+  aspect-ratio: 3/4;
+  background: url('images/storefront-2.png') center/cover;
+  border-radius: 2px;
+  border: 8px solid var(--cream-100);
+  box-shadow: var(--shadow-deep);
+}
+.about-imagery .badge-stamp {
+  position: absolute;
+  top: -28px;
+  left: -28px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: var(--terra-600);
+  color: var(--cream-50);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif-caps);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-align: center;
+  line-height: 1.3;
+  padding: 0;
+  box-shadow: var(--shadow-soft);
+  transform: rotate(-8deg);
+  z-index: 2;
+}
+.about-imagery .badge-stamp::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  border: 1px solid rgba(250, 245, 236, 0.35);
+  pointer-events: none;
+}
+.badge-stamp .line-top,
+.badge-stamp .line-bot {
+  display: block;
+  font-family: var(--serif-caps);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--cream-50);
+  white-space: nowrap;
+}
+.badge-stamp .line-mid {
+  display: block;
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-size: 22px;
+  letter-spacing: 0;
+  margin: 4px 0;
+  color: var(--gold-300);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.about-copy .eyebrow { margin-bottom: 20px; display: block; }
+.about-copy h2 {
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 300;
+  margin-bottom: 32px;
+  line-height: 1.05;
+}
+.about-copy h2 em { font-style: italic; color: var(--green-700); }
+.about-copy p {
+  margin-bottom: 22px;
+  color: var(--ink-700);
+  font-size: 17px;
+  line-height: 1.75;
+}
+.about-copy .signature {
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-size: 28px;
+  color: var(--green-800);
+  margin-top: 36px;
+  display: block;
+}
+.about-copy .signature-sub {
+  font-family: var(--serif-caps);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--gold-500);
+  margin-top: 4px;
+  display: block;
+}
+
+/* ---------- Specialties grid ---------- */
+.specialties {
+  background: var(--cream-50);
+}
+.specialty-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 28px;
+}
+.spec-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--green-800);
+  color: var(--cream-100);
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 36px;
+  transition: transform .5s ease;
+  cursor: pointer;
+}
+.spec-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform .8s ease, filter .5s ease;
+  filter: saturate(1.05);
+}
+.spec-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(26,20,16,0.85) 100%);
+}
+.spec-card:hover::before { transform: scale(1.06); filter: saturate(1.15); }
+.spec-card > * { position: relative; z-index: 2; }
+
+.spec-card .spec-kicker {
+  font-family: var(--serif-caps);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--gold-400);
+  margin-bottom: 10px;
+}
+.spec-card h3 {
+  font-family: var(--serif-display);
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--cream-100);
+  margin-bottom: 10px;
+  font-style: italic;
+}
+.spec-card p {
+  color: rgba(243, 234, 216, 0.85);
+  font-size: 15px;
+  line-height: 1.55;
+  max-width: 320px;
+}
+.spec-card .spec-arrow {
+  margin-top: 18px;
+  font-family: var(--serif-caps);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--gold-400);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: gap .3s ease;
+}
+.spec-card:hover .spec-arrow { gap: 16px; }
+
+.spec-1 { grid-column: span 7; min-height: 440px; }
+.spec-1::before { background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1400&auto=format&fit=crop'); }
+
+.spec-2 { grid-column: span 5; }
+.spec-2::before { background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1400&auto=format&fit=crop'); }
+
+.spec-3 { grid-column: span 4; }
+.spec-3::before { background-image: url('https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=1400&auto=format&fit=crop'); }
+
+.spec-4 { grid-column: span 4; }
+.spec-4::before { background-image: url('https://images.unsplash.com/photo-1559622214-f8a9850965bb?q=80&w=1400&auto=format&fit=crop'); }
+
+.spec-5 { grid-column: span 4; }
+.spec-5::before { background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1400&auto=format&fit=crop'); }
+
+/* ---------- Menu preview ---------- */
+.menu {
+  background: var(--green-900);
+  color: var(--cream-100);
+  position: relative;
+  overflow: hidden;
+}
+.menu::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(201,162,74,.08) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(201,162,74,.06) 0%, transparent 50%);
+}
+.menu .section-head h2 { color: var(--cream-100); }
+.menu .section-head h2 em { color: var(--gold-400); }
+.menu .section-head p { color: rgba(243, 234, 216, 0.7); }
+.menu .section-head .eyebrow { color: var(--gold-400); }
+.menu .divider-ornament { color: var(--gold-400); }
+.menu .divider-ornament::before, .menu .divider-ornament::after { background: var(--gold-400); }
+
+.menu-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.menu-column h3 {
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-size: 34px;
+  font-weight: 400;
+  color: var(--gold-400);
+  margin-bottom: 32px;
+  text-align: center;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(201,162,74,.3);
+}
+.menu-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px dashed rgba(243, 234, 216, 0.12);
+  align-items: baseline;
+}
+.menu-item:last-child { border-bottom: none; }
+.menu-item-name {
+  font-family: var(--serif-display);
+  font-size: 22px;
+  color: var(--cream-100);
+  font-weight: 400;
+}
+.menu-item-desc {
+  font-size: 14px;
+  color: rgba(243, 234, 216, 0.6);
+  font-style: italic;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+.menu-item-price {
+  font-family: var(--serif-display);
+  font-size: 20px;
+  color: var(--gold-400);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.menu-footnote {
+  text-align: center;
+  margin-top: 60px;
+  font-family: var(--serif-display);
+  font-style: italic;
+  color: rgba(243, 234, 216, 0.7);
+  font-size: 18px;
+}
+.menu-footnote strong {
+  font-weight: 400;
+  color: var(--gold-400);
+}
+
+/* ---------- Reviews / Testimonials ---------- */
+.reviews {
+  background: var(--cream-50);
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 60px;
+}
+.review-card {
+  background: var(--cream-100);
+  padding: 44px 36px;
+  border-radius: 2px;
+  position: relative;
+  border: 1px solid rgba(201,162,74,.2);
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
+}
+.review-card::before {
+  content: "\201C";
+  position: absolute;
+  top: -20px;
+  left: 30px;
+  font-family: var(--serif-display);
+  font-size: 90px;
+  color: var(--gold-500);
+  line-height: 1;
+  font-style: italic;
+}
+.review-stars {
+  color: var(--gold-500);
+  font-size: 16px;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+}
+.review-text {
+  font-family: var(--serif-display);
+  font-size: 19px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--ink-700);
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(201,162,74,.25);
+}
+.review-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--green-800);
+  color: var(--gold-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-size: 20px;
+}
+.review-name {
+  font-family: var(--serif-display);
+  font-size: 17px;
+  color: var(--ink-900);
+  font-weight: 500;
+}
+.review-meal {
+  font-family: var(--serif-caps);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--gold-500);
+}
+
+.reviews-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 60px;
+  padding: 36px;
+  background: var(--cream-100);
+  border-radius: 2px;
+  flex-wrap: wrap;
+}
+.summary-block {
+  text-align: center;
+}
+.summary-big {
+  font-family: var(--serif-display);
+  font-size: 48px;
+  color: var(--green-800);
+  font-weight: 400;
+  line-height: 1;
+}
+.summary-big em {
+  font-style: italic;
+  color: var(--gold-500);
+}
+.summary-label {
+  font-family: var(--serif-caps);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--ink-500);
+  margin-top: 8px;
+}
+.summary-divider {
+  width: 1px;
+  height: 48px;
+  background: rgba(201,162,74,.4);
+}
+
+/* ---------- Visit / Hours / Contact ---------- */
+.visit {
+  background: var(--green-800);
+  color: var(--cream-100);
+  position: relative;
+  overflow: hidden;
+}
+.visit::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 80% 20%, rgba(201,162,74,.1) 0%, transparent 40%);
+}
+.visit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.visit-info .eyebrow { color: var(--gold-400); margin-bottom: 20px; display: inline-block; }
+.visit-info h2 {
+  font-size: clamp(40px, 5vw, 64px);
+  color: var(--cream-100);
+  font-weight: 300;
+  margin-bottom: 40px;
+  line-height: 1.05;
+}
+.visit-info h2 em { font-style: italic; color: var(--gold-400); }
+
+.info-block {
+  padding: 28px 0;
+  border-top: 1px solid rgba(201,162,74,.3);
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.info-block:last-of-type { border-bottom: 1px solid rgba(201,162,74,.3); }
+.info-label {
+  font-family: var(--serif-caps);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  color: var(--gold-400);
+}
+.info-content {
+  font-family: var(--serif-display);
+  font-size: 19px;
+  line-height: 1.65;
+  color: var(--cream-100);
+}
+.info-content .muted {
+  display: block;
+  font-size: 15px;
+  color: rgba(243, 234, 216, 0.7);
+  font-style: italic;
+  margin-top: 4px;
+}
+.info-content a {
+  border-bottom: 1px solid var(--gold-400);
+  transition: color .25s ease;
+}
+.info-content a:hover { color: var(--gold-400); }
+
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 17px;
+}
+.hours-row + .hours-row { border-top: 1px dashed rgba(243, 234, 216, 0.12); margin-top: 4px; padding-top: 10px; }
+.hours-row .day { color: rgba(243, 234, 216, 0.8); }
+.hours-row .time { color: var(--gold-400); font-family: var(--serif-display); }
+
+.map-wrap {
+  position: relative;
+  aspect-ratio: 3/4;
+  background: var(--green-900);
+  border-radius: 2px;
+  overflow: hidden;
+  border: 1px solid rgba(201,162,74,.25);
+}
+.map-wrap iframe {
+  width: 100%; height: 100%; border: none;
+  filter: grayscale(30%) sepia(10%);
+}
+.map-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: var(--cream-50);
+  padding: 20px 24px;
+  border-radius: 2px;
+  box-shadow: var(--shadow-deep);
+  color: var(--ink-700);
+}
+.map-overlay strong {
+  font-family: var(--serif-display);
+  font-size: 20px;
+  color: var(--green-800);
+  display: block;
+  margin-bottom: 4px;
+}
+.map-overlay .map-address {
+  font-size: 14px;
+  color: var(--ink-500);
+  font-style: italic;
+}
+.map-overlay a.map-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: var(--serif-caps);
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  color: var(--green-800);
+  border-bottom: 1px solid var(--gold-500);
+  padding-bottom: 2px;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--ink-900);
+  color: rgba(243, 234, 216, 0.7);
+  padding: 80px 0 30px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.footer-brand img { width: 58px; height: 58px; border-radius: 50%; }
+.footer-brand .brand-name {
+  font-family: var(--serif-display);
+  font-size: 26px;
+  color: var(--cream-100);
+  font-style: italic;
+}
+.footer-brand .brand-tag {
+  font-family: var(--serif-caps);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--gold-400);
+}
+.footer-brand p {
+  font-family: var(--serif-body);
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(243, 234, 216, 0.6);
+  max-width: 340px;
+  margin-top: 10px;
+}
+
+.footer h4 {
+  font-family: var(--serif-caps);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  color: var(--gold-400);
+  font-weight: 500;
+  margin-bottom: 22px;
+}
+.footer ul { list-style: none; }
+.footer li { margin-bottom: 10px; font-size: 14px; color: rgba(243, 234, 216, 0.65); }
+.footer li a { transition: color .25s ease; }
+.footer li a:hover { color: var(--gold-400); }
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+.footer-social a {
+  width: 40px; height: 40px;
+  border: 1px solid rgba(201,162,74,.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-400);
+  transition: all .25s ease;
+}
+.footer-social a:hover {
+  background: var(--gold-500);
+  color: var(--ink-900);
+  border-color: var(--gold-500);
+}
+.footer-social svg { width: 16px; height: 16px; }
+
+.footer-bottom {
+  padding-top: 30px;
+  border-top: 1px solid rgba(201,162,74,.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--serif-caps);
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  color: rgba(243, 234, 216, 0.4);
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 60px; }
+  .hero-monogram { order: -1; }
+  .hero-monogram-inner { width: 240px; height: 240px; }
+  .hero-monogram-inner .f-mark { font-size: 130px; }
+  .about-grid { grid-template-columns: 1fr; gap: 80px; }
+  .about-imagery .accent-img { right: -20px; bottom: -30px; }
+  .visit-grid { grid-template-columns: 1fr; gap: 50px; }
+  .menu-columns { grid-template-columns: 1fr; gap: 50px; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+
+  /* Nav collapses to hamburger here — prevents cramping at tablet widths */
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+
+  /* Specialty grid collapses to a nicer 2-col layout */
+  .spec-1, .spec-2 { grid-column: span 12; min-height: 340px; }
+  .spec-3, .spec-4, .spec-5 { grid-column: span 6; }
+}
+
+@media (max-width: 720px) {
+  section { padding: 80px 0; }
+  .hero { min-height: auto; padding: 80px 0 140px; }
+  .hero h1 { font-size: clamp(40px, 10vw, 68px); }
+  .info-block { grid-template-columns: 1fr; gap: 10px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .spec-3, .spec-4, .spec-5 { grid-column: span 12; }
+  .about-imagery .badge-stamp { width: 104px; height: 104px; top: -16px; left: -16px; }
+  .badge-stamp .line-top, .badge-stamp .line-bot { font-size: 8px; }
+  .badge-stamp .line-mid { font-size: 18px; }
+  .reviews-summary { gap: 20px; padding: 24px; }
+  .summary-divider { display: none; }
+  .topbar { font-size: 10px; letter-spacing: 0.18em; }
+  .nav-logo .brand-sub { display: none; }
+
+}
+
+/* ---------- Mobile nav drawer (global, not inside media query) ---------- */
+.nav-drawer {
+  position: fixed;
+  inset: 0;
+  background: var(--green-900);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  padding: 80px 32px 32px;
+  transform: translateX(100%);
+  transition: transform .4s ease;
+  visibility: hidden;
+}
+.nav-drawer.open {
+  transform: translateX(0);
+  visibility: visible;
+}
+.nav-drawer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.nav-drawer a {
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-size: 32px;
+  color: var(--cream-100);
+  text-decoration: none;
+}
+.nav-drawer .nav-drawer-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: var(--cream-100);
+  cursor: pointer;
+  padding: 8px;
+}
+.nav-drawer .nav-drawer-close svg { width: 28px; height: 28px; }
+</style>
+</head>
+<body>
+
+<!-- Announcement bar -->
+<div class="topbar">
+  Padaria Artesanal <span>·</span> Pães e Cafés Especiais <span>·</span> Uberlândia, MG
+</div>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="container">
+    <nav class="nav">
+      <a href="#top" class="nav-logo" aria-label="Casa Dom Farina — início">
+        <img src="images/logo.png" alt="Casa Dom Farina" />
+        <div>
+          <div class="brand-name">Casa Dom Farina</div>
+          <div class="brand-sub">Est. Uberlândia</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#historia">A Casa</a></li>
+        <li><a href="#especialidades">Especialidades</a></li>
+        <li><a href="#cardapio">Cardápio</a></li>
+        <li><a href="#experiencia">Experiência</a></li>
+        <li><a href="#visite">Visite-nos</a></li>
+      </ul>
+      <button class="nav-cta" onclick="document.getElementById('visite').scrollIntoView({behavior:'smooth'})">Reservar Mesa</button>
+      <button class="hamburger" aria-label="Abrir menu" onclick="document.getElementById('navDrawer').classList.add('open')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="navDrawer">
+  <button class="nav-drawer-close" aria-label="Fechar menu" onclick="document.getElementById('navDrawer').classList.remove('open')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M6 18L18 6"/></svg>
+  </button>
+  <ul onclick="document.getElementById('navDrawer').classList.remove('open')">
+    <li><a href="#historia">A Casa</a></li>
+    <li><a href="#especialidades">Especialidades</a></li>
+    <li><a href="#cardapio">Cardápio</a></li>
+    <li><a href="#experiencia">Experiência</a></li>
+    <li><a href="#visite">Visite-nos</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="hero-eyebrow">Desde a Primeira Fornada</div>
+        <h1>Pães que <em>perfumam</em> a manhã,<br>cafés que <em>abraçam</em> a mesa.</h1>
+        <p class="lede">
+          Uma padaria artesanal no coração de Uberlândia, onde a massa descansa em seu tempo,
+          o café se mede com carinho e cada receita carrega a alma de uma cozinha que acolhe.
+        </p>
+        <div class="hero-ctas">
+          <button class="btn-gold" onclick="document.getElementById('cardapio').scrollIntoView({behavior:'smooth'})">Ver Cardápio</button>
+          <button class="btn-ghost-light" onclick="document.getElementById('visite').scrollIntoView({behavior:'smooth'})">Como Chegar</button>
+        </div>
+      </div>
+      <div class="hero-monogram">
+        <div class="hero-monogram-inner">
+          <span class="f-mark">F</span>
+        </div>
+        <div class="sub-ribbon">— Casa Dom Farina —</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">Desça para conhecer</div>
+</section>
+
+<!-- ABOUT / HISTÓRIA -->
+<section class="about" id="historia">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-imagery reveal">
+        <div class="main-img"></div>
+        <div class="accent-img"></div>
+        <div class="badge-stamp">
+          <span class="line-top">Feito com</span>
+          <span class="line-mid">Carinho</span>
+          <span class="line-bot">Desde o início</span>
+        </div>
+      </div>
+      <div class="about-copy reveal">
+        <span class="eyebrow">Nossa História</span>
+        <h2>Uma casa que <em>nasceu</em> para receber.</h2>
+        <p>
+          A Casa Dom Farina nasceu da paixão por uma farinha bem trabalhada, por um café bem tirado
+          e pela ideia simples — e preciosa — de que toda boa refeição começa com acolhimento.
+        </p>
+        <p>
+          Somos uma padaria artesanal que faz do tempo um ingrediente. Nossas massas fermentam
+          lentamente, nossos doces são feitos com manteiga francesa e atenção aos detalhes, e cada
+          prato sai da cozinha como deve: na temperatura certa, no tempo certo, com o cuidado certo.
+        </p>
+        <p>
+          Aqui, a Carine recebe pessoalmente quem entra. Aqui, domingos cheiram a croissant quentinho.
+          Aqui, é casa.
+        </p>
+        <span class="signature">Carine</span>
+        <span class="signature-sub">Anfitriã & Proprietária</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALIDADES -->
+<section class="specialties" id="especialidades">
+  <div class="container">
+    <div class="section-head">
+      <div class="divider-ornament">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>
+      </div>
+      <span class="eyebrow">O que servimos</span>
+      <h2>Cada canto da casa, uma <em>especialidade</em>.</h2>
+      <p>
+        Do forno à vitrine, do balcão à mesa — cada item carrega a assinatura
+        de uma cozinha que insiste em fazer as coisas com calma e bem feitas.
+      </p>
+    </div>
+    <div class="specialty-grid">
+      <a class="spec-card spec-1 reveal" href="#cardapio">
+        <div class="spec-kicker">001 — Padaria</div>
+        <h3>Pães Artesanais</h3>
+        <p>Fermentação natural, crosta crocante, miolo alveolado. Pães como deveriam ser, todos os dias.</p>
+        <span class="spec-arrow">Explorar →</span>
+      </a>
+      <a class="spec-card spec-2 reveal" href="#cardapio">
+        <div class="spec-kicker">002 — Cafeteria</div>
+        <h3>Cafés Especiais</h3>
+        <p>Grãos selecionados, extrações precisas. Do ice mocha ao clássico espresso.</p>
+        <span class="spec-arrow">Explorar →</span>
+      </a>
+      <a class="spec-card spec-3 reveal" href="#cardapio">
+        <div class="spec-kicker">003 — Brunch</div>
+        <h3>Brunch de Domingo</h3>
+        <p>Ovos beneditos, croque madame, shakshuk — a mesa posta em celebração.</p>
+        <span class="spec-arrow">Explorar →</span>
+      </a>
+      <a class="spec-card spec-4 reveal" href="#cardapio">
+        <div class="spec-kicker">004 — Patisserie</div>
+        <h3>Doces da Casa</h3>
+        <p>Éclair de pistache, cornetto de avelã, croissant de salmão in natura.</p>
+        <span class="spec-arrow">Explorar →</span>
+      </a>
+      <a class="spec-card spec-5 reveal" href="#cardapio">
+        <div class="spec-kicker">005 — Almoço</div>
+        <h3>Executivo do Dia</h3>
+        <p>De terça a sexta, 11h30 às 14h. Pratos que mudam, qualidade que permanece.</p>
+        <span class="spec-arrow">Explorar →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MENU PREVIEW -->
+<section class="menu" id="cardapio">
+  <div class="container">
+    <div class="section-head">
+      <div class="divider-ornament">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>
+      </div>
+      <span class="eyebrow">Cardápio</span>
+      <h2>Uma <em>amostra</em> da cozinha.</h2>
+      <p>Os destaques que os clientes pedem sempre, e que a casa faz com orgulho.</p>
+    </div>
+
+    <div class="menu-columns">
+      <div class="menu-column reveal">
+        <h3>Brunch & Pratos</h3>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Eggs Benedict</div>
+            <div class="menu-item-desc">Muffin inglês, ovos pochê, bacon artesanal, hollandaise cítrico</div>
+          </div>
+          <div class="menu-item-price">R$ 48</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Shakshuk</div>
+            <div class="menu-item-desc">Ovos cozidos em molho de tomate especiado, pão da casa</div>
+          </div>
+          <div class="menu-item-price">R$ 42</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Croque Madame</div>
+            <div class="menu-item-desc">Pão de forma brioche, presunto, queijo gruyère, ovo estrelado</div>
+          </div>
+          <div class="menu-item-price">R$ 46</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Croissant de Salmão</div>
+            <div class="menu-item-desc">Croissant amanteigado, salmão in natura, cream cheese, endro</div>
+          </div>
+          <div class="menu-item-price">R$ 52</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Almoço Executivo</div>
+            <div class="menu-item-desc">Prato do dia · terça a sexta · 11h30 às 14h</div>
+          </div>
+          <div class="menu-item-price">R$ 58</div>
+        </div>
+      </div>
+
+      <div class="menu-column reveal">
+        <h3>Patisserie & Cafés</h3>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Éclair de Pistache</div>
+            <div class="menu-item-desc">Massa choux, creme de pistache siciliano, ganache</div>
+          </div>
+          <div class="menu-item-price">R$ 22</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Cornetto de Avelã</div>
+            <div class="menu-item-desc">Laminado 72 camadas, creme gianduia, avelãs torradas</div>
+          </div>
+          <div class="menu-item-price">R$ 24</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Ice Mocha</div>
+            <div class="menu-item-desc">Espresso duplo, chocolate belga 70%, leite gelado, chantilly</div>
+          </div>
+          <div class="menu-item-price">R$ 18</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Cappuccino da Casa</div>
+            <div class="menu-item-desc">Grãos especiais, microfoam sedoso, latte art</div>
+          </div>
+          <div class="menu-item-price">R$ 14</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Pão de Fermentação Natural</div>
+            <div class="menu-item-desc">500g · à venda diariamente enquanto durar a fornada</div>
+          </div>
+          <div class="menu-item-price">R$ 32</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="menu-footnote">
+      O cardápio completo está disponível na casa. <strong>Cheguem cedo aos domingos</strong> — as mesas se esgotam com o sucesso de sempre.
+    </p>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="experiencia">
+  <div class="container">
+    <div class="section-head">
+      <div class="divider-ornament">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>
+      </div>
+      <span class="eyebrow">Experiência</span>
+      <h2>O que dizem quem <em>já voltou</em>.</h2>
+      <p>Pessoas reais, visitas reais — a avaliação que mais nos orgulha é quando alguém volta.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <article class="review-card reveal">
+        <div class="review-stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">
+          Sabe quando você entra num lugar e pensa "era isso que Uberlândia tava precisando"? A Dom Farina me ganhou fácil. Ambiente acolhedor, sabor impecável, atendimento com excelência. Indico de olhos fechados.
+        </p>
+        <div class="review-author">
+          <div class="review-avatar">A</div>
+          <div>
+            <div class="review-name">Ana Karolina</div>
+            <div class="review-meal">Café da manhã · Local Guide</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="review-stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">
+          O melhor brunch de Uberlândia. Muitas opções de patisserie, pratos com ovos — inclusive beneditos — e variedade de cafés. A Carine é apaixonada pelo que faz, e é ela que torna esse lugar tão especial.
+        </p>
+        <div class="review-author">
+          <div class="review-avatar">B</div>
+          <div>
+            <div class="review-name">Bianca Prado</div>
+            <div class="review-meal">Brunch · Local Guide</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="review-stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">
+          Excelente para tomar café e comer um brunch. Croque Madame e Eggs Benedict fenomenais, Ice Mocha é o nosso preferido. A dona sempre presente, atendendo com muita simpatia.
+        </p>
+        <div class="review-author">
+          <div class="review-avatar">H</div>
+          <div>
+            <div class="review-name">Henrique Ferreira</div>
+            <div class="review-meal">Brunch · Local Guide</div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="reviews-summary reveal">
+      <div class="summary-block">
+        <div class="summary-big">5<em>.0</em></div>
+        <div class="summary-label">Avaliação Google</div>
+      </div>
+      <div class="summary-divider"></div>
+      <div class="summary-block">
+        <div class="summary-big">★ ★ ★ ★ ★</div>
+        <div class="summary-label">Comida · Atendimento · Ambiente</div>
+      </div>
+      <div class="summary-divider"></div>
+      <div class="summary-block">
+        <div class="summary-big"><em>100%</em></div>
+        <div class="summary-label">Dos clientes voltam</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visite">
+  <div class="container">
+    <div class="visit-grid">
+      <div class="visit-info reveal">
+        <span class="eyebrow">Visite-nos</span>
+        <h2>A casa está <em>aberta</em>.</h2>
+
+        <div class="info-block">
+          <div class="info-label">Endereço</div>
+          <div class="info-content">
+            Rua Otília Souza Oliveira, 270 · Loja 4
+            <span class="muted">Uberlândia, MG · CEP 38411-006</span>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-label">Horários</div>
+          <div class="info-content">
+            <div class="hours-row"><span class="day">Terça a Sábado</span><span class="time">08h — 19h</span></div>
+            <div class="hours-row"><span class="day">Domingo</span><span class="time">08h — 12h</span></div>
+            <div class="hours-row"><span class="day">Almoço Executivo</span><span class="time">Ter–Sex · 11h30–14h</span></div>
+            <div class="hours-row"><span class="day">Segunda-feira</span><span class="time">Fechado</span></div>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-label">Contato</div>
+          <div class="info-content">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener">@casadomfarina</a>
+            <span class="muted">Reservas e encomendas pelo Direct</span>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-label">Estacionamento</div>
+          <div class="info-content">
+            Estacionamento gratuito no local
+            <span class="muted">Vagas na rua e no estabelecimento</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-wrap reveal">
+        <iframe
+          src="https://www.google.com/maps?q=Rua+Ot%C3%ADlia+Souza+Oliveira,+270,+Uberl%C3%A2ndia&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Casa Dom Farina no mapa"></iframe>
+        <div class="map-overlay">
+          <strong>Casa Dom Farina</strong>
+          <span class="map-address">R. Otília Souza Oliveira, 270 — Lj 4, Uberlândia</span>
+          <br>
+          <a class="map-link" href="https://maps.app.goo.gl/YWmbYVsTYajCNU3H6" target="_blank" rel="noopener">
+            Abrir no Google Maps →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex; align-items:center; gap: 14px;">
+          <img src="images/logo.png" alt="Casa Dom Farina">
+          <div>
+            <div class="brand-name">Casa Dom Farina</div>
+            <div class="brand-tag">Padaria Artesanal</div>
+          </div>
+        </div>
+        <p>
+          Um lugar para começar o dia com calma, comer como se estivesse em casa
+          e levar um pedacinho de cuidado para a semana.
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="https://maps.app.goo.gl/YWmbYVsTYajCNU3H6" aria-label="Google Maps" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 22s-7-6.5-7-12a7 7 0 1 1 14 0c0 5.5-7 12-7 12z"/>
+              <circle cx="12" cy="10" r="2.5"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 21l1.7-5A8 8 0 1 1 8 19.3L3 21z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Navegar</h4>
+        <ul>
+          <li><a href="#historia">A Casa</a></li>
+          <li><a href="#especialidades">Especialidades</a></li>
+          <li><a href="#cardapio">Cardápio</a></li>
+          <li><a href="#experiencia">Experiência</a></li>
+          <li><a href="#visite">Visite-nos</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Horários</h4>
+        <ul>
+          <li>Ter–Sáb · 08h–19h</li>
+          <li>Domingo · 08h–12h</li>
+          <li>Executivo · Ter–Sex · 11h30</li>
+          <li style="color: var(--gold-300); font-style: italic; margin-top: 10px;">Segunda · fechado</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li>R. Otília Souza Oliveira, 270</li>
+          <li>Loja 4 · Uberlândia, MG</li>
+          <li>CEP 38411-006</li>
+          <li style="margin-top: 10px;"><a href="https://maps.app.goo.gl/YWmbYVsTYajCNU3H6" target="_blank" rel="noopener" style="color: var(--gold-400);">Ver no mapa →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 · Casa Dom Farina · Todos os direitos reservados</div>
+      <div>Feito com <span style="color: var(--terra-500);">♥</span> em Uberlândia</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- Reveal on scroll ---------- */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ---------- Smooth scroll fix for older Safari ---------- */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const href = link.getAttribute('href');
+    if (href === '#') return;
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+/* ---------- Subtle parallax on hero monogram ---------- */
+const monogram = document.querySelector('.hero-monogram-inner');
+if (monogram) {
+  window.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 10;
+    const y = (e.clientY / window.innerHeight - 0.5) * 10;
+    monogram.style.transform = `translate(${x}px, ${y}px)`;
+  });
+}
+</script>
+
+</body>
+</html>
