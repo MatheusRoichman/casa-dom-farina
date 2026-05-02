@@ -1088,6 +1088,16 @@
       color: var(--gold-400);
     }
 
+    .menu-footnote-link {
+      color: var(--gold-400);
+      border-bottom: 1px solid rgba(201, 162, 74, 0.5);
+      transition: color .25s ease, border-color .25s ease;
+    }
+    .menu-footnote-link:hover {
+      color: var(--gold-300);
+      border-bottom-color: var(--gold-300);
+    }
+
     /* ---------- Reviews / Testimonials ---------- */
     .reviews {
       background: var(--cream-50);
@@ -1979,8 +1989,8 @@
         </div>
 
         <p class="menu-footnote">
-          O cardápio completo está disponível na casa. <strong>Cheguem cedo aos domingos</strong> — as mesas se esgotam
-          com o sucesso de sempre.
+          Veja o <a href="/menu" class="menu-footnote-link">cardápio completo</a>, ou peça na casa.
+          <strong>Cheguem cedo aos domingos</strong> — as mesas se esgotam com o sucesso de sempre.
         </p>
       </div>
     </section>
@@ -2171,6 +2181,7 @@
             <li><a href="#historia">A Casa</a></li>
             <li><a href="#especialidades">Especialidades</a></li>
             <li><a href="#cardapio">Cardápio</a></li>
+            <li><a href="/menu">Cardápio Completo</a></li>
             <li><a href="#experiencia">Experiência</a></li>
             <li><a href="#visite">Visite-nos</a></li>
           </ul>
