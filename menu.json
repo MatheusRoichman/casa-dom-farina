@@ -1,0 +1,731 @@
+{
+  "featured": [
+    {
+      "name": "Poché Folhado",
+      "description": "Pão folhado, béchamel, ovo poché, hollandaise e crocante de parma — o brunch que virou marca da casa.",
+      "price": 40,
+      "tag": "Assinatura",
+      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=1400&auto=format&fit=crop"
+    },
+    {
+      "name": "Lasanheta de Ossobuco",
+      "description": "Lasanha artesanal prensada, ragu de ossobuco cozido lentamente, mousseline de mandioquinha, demi-glace e azeite verde.",
+      "price": 74,
+      "tag": "Mais Pedido",
+      "image": "https://images.unsplash.com/photo-1559622214-f8a9850965bb?q=80&w=1400&auto=format&fit=crop"
+    },
+    {
+      "name": "Tartelette de Frangipane e Frutas Vermelhas",
+      "description": "Creme de amêndoas com mirtilos assados, geleia de frutas vermelhas, chantilly e pó de hibisco.",
+      "price": 26,
+      "tag": "Favorito",
+      "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=1400&auto=format&fit=crop"
+    }
+  ],
+  "categories": [
+    {
+      "id": "brunch",
+      "number": "01",
+      "eyebrow": "Brunch",
+      "title": "Brunch & Ovos",
+      "title_emphasis": "Ovos",
+      "description": "O coração da casa: ovos como devem ser, sanduíches montados na hora e o nosso Poché Folhado, que virou marca registrada.",
+      "items": [
+        {
+          "name": "Poché Folhado",
+          "description": "Pão folhado, béchamel, ovo poché, hollandaise e crocante de parma.",
+          "price": 40,
+          "tags": ["Assinatura"]
+        },
+        {
+          "name": "Croque Madame",
+          "description": "Pão brioche, presunto royale, queijo prata, béchamel, parmesão e ovo poché.",
+          "price": 54,
+          "tags": []
+        },
+        {
+          "name": "Croque Monsieur",
+          "description": "Pão brioche, presunto royale, queijo prata, béchamel e parmesão.",
+          "price": 46,
+          "tags": []
+        },
+        {
+          "name": "Grand Benedict",
+          "description": "English muffins, ovos poché, molho hollandaise, acompanha rúcula. Escolha entre presunto royale ou parma.",
+          "price": 54,
+          "tags": []
+        },
+        {
+          "name": "Omelete Maison",
+          "description": "Três ovos, béchamel, crispy de parma e azeite de ervas.",
+          "price": 42,
+          "tags": []
+        },
+        {
+          "name": "Shakshuka",
+          "description": "Molho artesanal, tomate confit, ovo poché. Acompanha duas fatias do pão da casa.",
+          "price": 54,
+          "tags": ["spicy:Levemente picante"]
+        },
+        {
+          "name": "Eggs Mexidos com Baguette",
+          "description": "Três ovos, queijo emmental, sal himalaia e pimenta-do-reino. Acompanha duas fatias de baguette.",
+          "price": 40,
+          "tags": []
+        },
+        {
+          "name": "Eggs Mexidos com Croissant",
+          "description": "Três ovos, queijo emmental, sal himalaia e pimenta-do-reino. Acompanha um croissant aberto.",
+          "price": 44,
+          "tags": []
+        },
+        {
+          "name": "Eggs Mexidos com Bacon e Baguette",
+          "description": "Três ovos, queijo emmental, sal himalaia, pimenta-do-reino e duas fatias de bacon. Acompanha duas fatias de baguette.",
+          "price": 40,
+          "tags": []
+        },
+        {
+          "name": "Eggs Mexidos com Bacon e Croissant",
+          "description": "Três ovos, queijo emmental, sal himalaia, pimenta-do-reino e duas fatias de bacon. Acompanha um croissant aberto.",
+          "price": 44,
+          "tags": []
+        },
+        {
+          "name": "Sanduíche de Croissant com Eggs Mexidos",
+          "description": "Croissant montado com ovos mexidos, ricota e fatias de bacon.",
+          "price": 36,
+          "tags": []
+        },
+        {
+          "name": "Ballotine",
+          "description": "Pão ciabatta, frango, molho béchamel, queijo prato, rúcula, tomate grape e maionese da casa.",
+          "price": 52,
+          "tags": []
+        },
+        {
+          "name": "Pastrami Artesanal",
+          "description": "Pão ciabatta, carne bovina defumada, requeijão, rúcula, béchamel de gorgonzola e geleia de abacaxi com pimenta.",
+          "price": 55,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "classicos",
+      "number": "02",
+      "eyebrow": "Clássicos",
+      "title": "Clássicos da Casa",
+      "title_emphasis": "da Casa",
+      "description": "Sanduíches montados na hora, pão de queijo direto da chapa e os pãezinhos amanteigados de toda manhã.",
+      "items": [
+        {
+          "name": "Bauru Maison",
+          "description": "Pão brioche, presunto royale, queijo prato, tomate fresco, pasta de ervas da casa e creme Dijon.",
+          "price": 42,
+          "tags": []
+        },
+        {
+          "name": "Misto Artesanal",
+          "description": "Pão brioche, presunto royale, queijo prato, pasta de ervas da casa e creme Dijon.",
+          "price": 38,
+          "tags": []
+        },
+        {
+          "name": "Cesta de Pão de Queijo",
+          "description": "Cinco mini pães de queijo, quentes da chapa.",
+          "price": 18,
+          "tags": ["veg:Vegetariano"]
+        },
+        {
+          "name": "Pão de Queijo com Requeijão",
+          "description": "Dois pães de queijo artesanais com requeijão na chapa.",
+          "price": 20,
+          "tags": ["veg:Vegetariano"]
+        },
+        {
+          "name": "Na Chapa — Baguette",
+          "description": "Duas fatias de baguette com manteiga na chapa. Acompanha manteiga aromatizada com ervas.",
+          "price": 24,
+          "tags": ["veg:Vegetariano"]
+        },
+        {
+          "name": "Na Chapa — Brioche",
+          "description": "Duas fatias de brioche com manteiga na chapa. Acompanha manteiga aromatizada com ervas.",
+          "price": 26,
+          "tags": ["veg:Vegetariano"]
+        },
+        {
+          "name": "Na Chapa — Croissant",
+          "description": "Um croissant aberto com manteiga na chapa. Acompanha manteiga aromatizada com ervas.",
+          "price": 28,
+          "tags": ["veg:Vegetariano"]
+        },
+        {
+          "name": "Na Chapa — Baguette com Requeijão",
+          "description": "Duas fatias de baguette com requeijão na chapa.",
+          "price": 26,
+          "tags": ["veg:Vegetariano"]
+        },
+        {
+          "name": "Na Chapa — Brioche com Requeijão",
+          "description": "Duas fatias de brioche com requeijão na chapa.",
+          "price": 28,
+          "tags": ["veg:Vegetariano"]
+        },
+        {
+          "name": "Na Chapa — Croissant com Requeijão",
+          "description": "Um croissant aberto com requeijão na chapa.",
+          "price": 30,
+          "tags": ["veg:Vegetariano"]
+        },
+        {
+          "name": "Adicional · Bacon",
+          "description": "Duas fatias.",
+          "price": 8,
+          "tags": []
+        },
+        {
+          "name": "Adicional · Manteiga da Casa",
+          "description": "Manteiga aromatizada com ervas frescas.",
+          "price": 8,
+          "tags": []
+        },
+        {
+          "name": "Adicional · Geleia de Frutas Vermelhas",
+          "description": "Feita na casa, em pequenos lotes.",
+          "price": 8,
+          "tags": []
+        },
+        {
+          "name": "Adicional · Geleia de Abacaxi com Pimenta",
+          "description": "Doce e levemente picante — combina com brioche e queijos.",
+          "price": 6,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "executivo",
+      "number": "03",
+      "eyebrow": "Executivo",
+      "title": "Pratos Executivos",
+      "title_emphasis": "Executivos",
+      "description": "Servidos no horário do almoço. Cozinha autoral com técnicas francesas e ingredientes selecionados.",
+      "items": [
+        {
+          "name": "Salada Caesar",
+          "description": "Alface romana e folhas selecionadas, molho Caesar artesanal, croutons de pão de fermentação natural, lascas de parmesão curado e frango.",
+          "price": 50,
+          "tags": []
+        },
+        {
+          "name": "Lasanha Prensada de Cogumelos",
+          "description": "Cogumelos grelhados e mandioquinha, molho de tomate rústico, cogumelos salteados, azeite verde e toque final de creme balsâmico.",
+          "price": 64,
+          "tags": ["veg:Vegana"]
+        },
+        {
+          "name": "Ballotine e Espinafre",
+          "description": "Ballotine de frango recheado com queijo feta, parmesão curado e espinafre, risoto cremoso de alho-poró, velouté de frango, picles de cebola roxa e azeite verde.",
+          "price": 68,
+          "tags": []
+        },
+        {
+          "name": "Lasanheta de Ossobuco",
+          "description": "Lasanha artesanal prensada, recheada com ragu de ossobuco cozido lentamente, mousseline de mandioquinha, demi-glace reduzido, crocante de pão e bacon, creme balsâmico e azeite verde.",
+          "price": 74,
+          "tags": ["Mais Pedido"]
+        },
+        {
+          "name": "Talharim do Mar e Bosque",
+          "description": "Talharim de massa fresca, molho béchamel de nata e tomilho, camarões grelhados e cogumelos salteados, finalizado com azeite de ervas frescas.",
+          "price": 84,
+          "tags": []
+        },
+        {
+          "name": "Filé Mignon Clássico",
+          "description": "Filé mignon grelhado, talharim de massa fresca envolto em fonduta de queijos, demi-glace reduzido e aspargos grelhados.",
+          "price": 86,
+          "tags": []
+        },
+        {
+          "name": "Salmão Beurre Blanc",
+          "description": "Salmão grelhado ao ponto, purê de banana-da-terra, tomates confit, brócolis tostados, palmito grelhado e clássico beurre blanc de alcaparras.",
+          "price": 88,
+          "tags": ["Assinatura"]
+        }
+      ]
+    },
+    {
+      "id": "panificacao",
+      "number": "04",
+      "eyebrow": "Panificação",
+      "title": "Pães Artesanais",
+      "title_emphasis": "Artesanais",
+      "description": "Fermentação natural de longa duração. Disponíveis enquanto durar a fornada — quem chega cedo leva o melhor.",
+      "items": [
+        {
+          "name": "Pão da Casa",
+          "description": "Nosso pão de fermentação natural — crosta crocante, miolo alveolado, sabor profundo.",
+          "price": 32,
+          "tags": []
+        },
+        {
+          "name": "Pão Integral 100%",
+          "description": "Farinha integral em sua forma mais pura, sem adições — a base que sustenta todo o resto.",
+          "price": 36,
+          "tags": []
+        },
+        {
+          "name": "Pão Multigrãos e Nozes",
+          "description": "Massa rústica com mistura de grãos e nozes torradas — encorpado, levemente adocicado.",
+          "price": 36,
+          "tags": []
+        },
+        {
+          "name": "Pão de Azeitona da Serra",
+          "description": "Fermentação natural com azeitonas pretas e alecrim.",
+          "price": 36,
+          "tags": []
+        },
+        {
+          "name": "Pão Calabresa",
+          "description": "Massa rústica com calabresa artesanal, ervas e azeite.",
+          "price": 36,
+          "tags": []
+        },
+        {
+          "name": "Pão de Frutas",
+          "description": "Frutas secas e castanhas envolvidas na massa — bom com queijos curados.",
+          "price": 36,
+          "tags": []
+        },
+        {
+          "name": "Pão Paiolinho",
+          "description": "Pão rústico de fubá, miolo macio e levemente adocicado.",
+          "price": 28,
+          "tags": []
+        },
+        {
+          "name": "Brioche Tradicional",
+          "description": "Massa enriquecida com manteiga e ovos, miolo macio e dourado.",
+          "price": 28,
+          "tags": []
+        },
+        {
+          "name": "Brioche de Goiabada e Amêndoas",
+          "description": "Brioche recheado com goiabada e finalizado com amêndoas laminadas.",
+          "price": 32,
+          "tags": []
+        },
+        {
+          "name": "Baguette",
+          "description": "Casca dourada, miolo aerado.",
+          "price": 20,
+          "tags": []
+        },
+        {
+          "name": "Ciabatta",
+          "description": "Pão italiano de miolo aberto, ideal para sanduíches e bruschettas.",
+          "price": 12,
+          "tags": []
+        },
+        {
+          "name": "Le Fu",
+          "description": "Mini pão de fermentação natural, ideal para acompanhar refeições.",
+          "price": 12,
+          "tags": []
+        },
+        {
+          "name": "Mini Pão de Queijo",
+          "description": "Vendido a unidade.",
+          "price": 3.5,
+          "tags": ["veg:Vegetariano"]
+        }
+      ]
+    },
+    {
+      "id": "patisserie",
+      "number": "05",
+      "eyebrow": "Patisserie",
+      "title": "Doces da Vitrine",
+      "title_emphasis": "da Vitrine",
+      "description": "Os doces que ficam na vitrine pedindo para serem levados — quase impossível sair sem um.",
+      "items": [
+        {
+          "name": "Tartelette de Frangipane e Frutas Vermelhas",
+          "description": "Creme de amêndoas com mirtilos assados, geleia de frutas vermelhas, chantilly e pó de hibisco.",
+          "price": 26,
+          "tags": ["Favorito"]
+        },
+        {
+          "name": "Tartelette de Maracujá e Chocolate Meio Amargo",
+          "description": "Creme de maracujá com ganache de chocolate meio amargo.",
+          "price": 26,
+          "tags": []
+        },
+        {
+          "name": "Tartelette Leonor — Banana com Caramelo Salgado",
+          "description": "Caramelo salgado, banana fresca, ganache de banana e creme de queijo.",
+          "price": 26,
+          "tags": []
+        },
+        {
+          "name": "Choux de Café",
+          "description": "Massa choux com recheio de ganache de chocolate assado e café, e caramelo de café.",
+          "price": 26,
+          "tags": []
+        },
+        {
+          "name": "Choux de Merengue de Morango",
+          "description": "Massa choux com creme pâtissière, morangos frescos, suspiro e chantilly.",
+          "price": 28,
+          "tags": []
+        },
+        {
+          "name": "Éclair de Pão de Mel",
+          "description": "Recheio de doce de leite e especiarias, coberto de ganache de chocolate.",
+          "price": 22,
+          "tags": []
+        },
+        {
+          "name": "Brownie de Chocolate Meio Amargo e Nozes",
+          "description": "Brownie de chocolate meio amargo e castanha de cajú, calda quente com rum e quenelle de chantilly.",
+          "price": 26,
+          "tags": []
+        },
+        {
+          "name": "Bolo de Chocolate Meio Amargo",
+          "description": "Massa chiffon de chocolate, ganache de chocolate meio amargo e caramelo de flor de sal.",
+          "price": 20,
+          "tags": []
+        },
+        {
+          "name": "Cookie de Chocolate Meio Amargo",
+          "description": "Biscoito artesanal macio por dentro e levemente crocante por fora, massa amanteigada com pedaços de chocolate.",
+          "price": 20,
+          "tags": []
+        },
+        {
+          "name": "Cookie de Chocolate Branco com Amêndoas",
+          "description": "Biscoito artesanal macio por dentro e levemente crocante por fora, massa amanteigada com pedaços de chocolate branco e amêndoas.",
+          "price": 20,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "barista",
+      "number": "06",
+      "eyebrow": "Barista",
+      "title": "Cafés Especiais",
+      "title_emphasis": "Especiais",
+      "description": "Grãos selecionados, extrações precisas e microfoam sedoso. A casa sai do café — e o café sai da casa.",
+      "items": [
+        {
+          "name": "Espresso",
+          "description": "30ml, torra média.",
+          "price": 16,
+          "tags": []
+        },
+        {
+          "name": "Espresso Duplo",
+          "description": "60ml, torra média.",
+          "price": 32,
+          "tags": []
+        },
+        {
+          "name": "Espresso com Chantilly",
+          "description": "30ml, torra média, finalizado com chantilly da casa.",
+          "price": 20,
+          "tags": []
+        },
+        {
+          "name": "Espresso Tônica",
+          "description": "Gelo, duas doses de espresso e tônica zero. Sugestão: laranja ou limão.",
+          "price": 28,
+          "tags": []
+        },
+        {
+          "name": "Macchiato",
+          "description": "Espresso e crema de leite.",
+          "price": 18,
+          "tags": []
+        },
+        {
+          "name": "Macchiato Duplo",
+          "description": "Dose dupla de espresso e crema de leite.",
+          "price": 32,
+          "tags": []
+        },
+        {
+          "name": "Média / Latte",
+          "description": "Espresso com leite vaporizado e crema de leite.",
+          "price": 22,
+          "tags": []
+        },
+        {
+          "name": "Cappuccino da Casa",
+          "description": "Crema de leite, café, chocolate e especiarias. Adoçado com açúcar mascavo.",
+          "price": 24,
+          "tags": ["Clássico"]
+        },
+        {
+          "name": "Cappuccino da Casa Duplo",
+          "description": "Mesmo cappuccino, em 350ml.",
+          "price": 34,
+          "tags": []
+        },
+        {
+          "name": "Cappuccino Italiano",
+          "description": "Clássico italiano: duas doses de espresso e pouco leite.",
+          "price": 24,
+          "tags": []
+        },
+        {
+          "name": "Cappuccino Italiano Duplo",
+          "description": "Versão 350ml.",
+          "price": 32,
+          "tags": []
+        },
+        {
+          "name": "Mocha",
+          "description": "Espresso, chocolate meio amargo e crema de leite.",
+          "price": 26,
+          "tags": []
+        },
+        {
+          "name": "Latte de Avelã",
+          "description": "Espresso, leite vaporizado, creme de avelã e chantilly.",
+          "price": 34,
+          "tags": []
+        },
+        {
+          "name": "Iced Latte",
+          "description": "Espresso, leite integral, gelo e crema de leite.",
+          "price": 30,
+          "tags": []
+        },
+        {
+          "name": "Iced Mocha",
+          "description": "Espresso, chocolate meio amargo, gelo e crema de leite.",
+          "price": 36,
+          "tags": []
+        },
+        {
+          "name": "Chocolate Quente",
+          "description": "Leite vaporizado, chocolate meio amargo e crema de leite. 200ml.",
+          "price": 28,
+          "tags": []
+        },
+        {
+          "name": "Café Coado V60 — Bourbon Amarelo",
+          "description": "160ml, extração V60. Suave e doce, com notas de tangerina e final longo de frutas cítricas. Torra média clara.",
+          "price": 26,
+          "tags": ["Coado"]
+        },
+        {
+          "name": "Café Coado V60 — Geisha",
+          "description": "160ml, extração V60. Variedade rara, originária da Etiópia — aroma floral, doçura intensa, corpo cremoso e notas de jasmim e mamão papaya.",
+          "price": 28,
+          "tags": ["new:Especial"]
+        },
+        {
+          "name": "Descafeinado",
+          "description": "60ml, extração V60.",
+          "price": 24,
+          "tags": []
+        },
+        {
+          "name": "Calda de Pudim Coado",
+          "description": "Café coado da seleção da casa.",
+          "price": 26,
+          "tags": []
+        },
+        {
+          "name": "Adicional · Descafeinado",
+          "description": "Substitua o grão padrão por descafeinado.",
+          "price": 8,
+          "tags": []
+        },
+        {
+          "name": "Adicional · Leite de Aveia",
+          "description": "Substitua o leite de vaca por leite de aveia.",
+          "price": 6,
+          "tags": []
+        },
+        {
+          "name": "Adicional · Leite Zero Lactose",
+          "description": "Substitua o leite por versão zero lactose.",
+          "price": 6,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "bebidas",
+      "number": "07",
+      "eyebrow": "Bebidas",
+      "title": "Sucos & Refrescos",
+      "title_emphasis": "Refrescos",
+      "description": "Sucos integrais, sodas italianas e os clássicos que acompanham qualquer prato.",
+      "items": [
+        {
+          "name": "Suco de Laranja Integral",
+          "description": "Espremido na hora.",
+          "price": 12,
+          "tags": ["300ml"]
+        },
+        {
+          "name": "Suco de Laranja com Acerola",
+          "description": "Laranja espremida na hora com acerola.",
+          "price": 12,
+          "tags": ["300ml"]
+        },
+        {
+          "name": "Suco de Goiaba",
+          "description": "Da polpa.",
+          "price": 12,
+          "tags": ["300ml"]
+        },
+        {
+          "name": "Suco de Uva",
+          "description": "Suco integral de uva.",
+          "price": 12,
+          "tags": ["300ml"]
+        },
+        {
+          "name": "Suco Tropical de Caju",
+          "description": "Da polpa.",
+          "price": 12,
+          "tags": ["300ml"]
+        },
+        {
+          "name": "Soda Italiana — Limão Siciliano",
+          "description": "Xarope artesanal, água com gás e gelo.",
+          "price": 28,
+          "tags": []
+        },
+        {
+          "name": "Soda Italiana — Maçã Verde",
+          "description": "Xarope artesanal, água com gás e gelo.",
+          "price": 28,
+          "tags": []
+        },
+        {
+          "name": "Soda Italiana — Mirtilo",
+          "description": "Xarope artesanal, água com gás e gelo.",
+          "price": 28,
+          "tags": []
+        },
+        {
+          "name": "Soda Italiana — Tangerina",
+          "description": "Xarope artesanal, água com gás e gelo.",
+          "price": 28,
+          "tags": []
+        },
+        {
+          "name": "Pink Lemonade",
+          "description": "Limonada com toque de frutas vermelhas.",
+          "price": 18,
+          "tags": []
+        },
+        {
+          "name": "Citrus",
+          "description": "Refresco cítrico da casa.",
+          "price": 12,
+          "tags": []
+        },
+        {
+          "name": "Coca-Cola Tradicional",
+          "description": "Lata.",
+          "price": 10,
+          "tags": ["310ml"]
+        },
+        {
+          "name": "Coca-Cola Zero",
+          "description": "Lata.",
+          "price": 10,
+          "tags": ["310ml"]
+        },
+        {
+          "name": "Tônica Prata Tradicional",
+          "description": "Garrafa.",
+          "price": 10,
+          "tags": []
+        },
+        {
+          "name": "Tônica Prata Zero",
+          "description": "Garrafa.",
+          "price": 10,
+          "tags": []
+        },
+        {
+          "name": "Clube Soda Prata",
+          "description": "Garrafa.",
+          "price": 10,
+          "tags": []
+        },
+        {
+          "name": "Água Mineral Prata",
+          "description": "Sem gás.",
+          "price": 12,
+          "tags": []
+        },
+        {
+          "name": "Água com Gás Prata",
+          "description": "Garrafa.",
+          "price": 12,
+          "tags": []
+        },
+        {
+          "name": "Gelo e Limão",
+          "description": "Para acompanhar.",
+          "price": 4,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "emporio",
+      "number": "08",
+      "eyebrow": "Empório",
+      "title": "Para Levar para Casa",
+      "title_emphasis": "Levar para Casa",
+      "description": "Os mesmos grãos que servimos na xícara, em pacote — para que a manhã em casa também tenha o cheiro da boulangerie.",
+      "items": [
+        {
+          "name": "Café Framboesa",
+          "description": "Notas frutadas e doces. Equilibrado, ideal para coados.",
+          "price": 54,
+          "tags": ["250g · grão"]
+        },
+        {
+          "name": "Café Mocha",
+          "description": "Encorpado, com notas que lembram chocolate amargo.",
+          "price": 54,
+          "tags": ["150g · grão"]
+        },
+        {
+          "name": "Café Mocha",
+          "description": "Embalagem maior, mesma seleção.",
+          "price": 146,
+          "tags": ["500g · grão"]
+        },
+        {
+          "name": "Café Calda de Pudim",
+          "description": "Doçura intensa, lembrança de caramelo no final de boca.",
+          "price": 98,
+          "tags": ["250g · grão"]
+        },
+        {
+          "name": "Café Castillo 90",
+          "description": "Microlote de pontuação alta — perfil delicado, complexo, ideal para métodos coados.",
+          "price": 122,
+          "tags": ["new:Especial · 150g · grão"]
+        }
+      ]
+    }
+  ]
+}
